@@ -15,6 +15,10 @@ class CreatePackagePlansTable extends Migration
     {
         Schema::create('package_plans', function (Blueprint $table) {
             $table->id();
+
+            $table->foreign('package_id')->references('id')->on('packages');
+            $table->foreign('plan_id')->references('id')->on('plans');
+
             $table->timestamps();
         });
     }

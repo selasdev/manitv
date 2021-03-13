@@ -15,6 +15,10 @@ class CreateProgramsTable extends Migration
     {
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->unique();
+
+            $table->foreign('channel_id')->references('id')->on('channels');
+
             $table->timestamps();
         });
     }

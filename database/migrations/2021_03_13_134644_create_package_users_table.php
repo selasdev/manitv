@@ -15,6 +15,12 @@ class CreatePackageUsersTable extends Migration
     {
         Schema::create('package_users', function (Blueprint $table) {
             $table->id();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('package_id')->references('id')->on('packages');
+
+            $table->string('state');
+
             $table->timestamps();
         });
     }
