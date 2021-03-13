@@ -7,7 +7,7 @@
         {{ $status }}
     </div>
     @endif
-    <h2 class="text-gray-700 text-5xl mb-4">Crear plan</h2>
+    <h1 class="mb-2">Crear plan</h1>
     <form action="{{ route('storePlan') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group flex flex-col">
@@ -29,7 +29,7 @@
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
         <div class="form-group">
-            <input type="submit" value="Crear" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            <input type="submit" value="Crear" class="btn btn-primary">
         </div>
     </form>
 </div>
