@@ -48,6 +48,14 @@ Route::post('/home/services/create', [App\Http\Controllers\ServiceController::cl
 ->middleware('auth')
 ->name('storeService');
 
+Route::get('/home/services/{service}', [App\Http\Controllers\ServiceController::class, 'edit'])
+->middleware('auth')
+->name('editService');
+
+Route::put('/home/services/{service}', [App\Http\Controllers\ServiceController::class, 'update'])
+->middleware('auth')
+->name('putService');
+
 //Plans
 Route::get('home/plans', [App\Http\Controllers\PlanController::class, 'index'])
 ->middleware('auth')

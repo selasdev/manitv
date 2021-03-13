@@ -8,6 +8,8 @@ class ServiceComponent extends Component
 {
 
     public $service;
+
+    public $showActions;
     
     public function render()
     {

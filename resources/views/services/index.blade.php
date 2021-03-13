@@ -10,7 +10,7 @@
 <div>
     <a href="{{ route('createService') }}">
         <button class="btn btn-primary">
-            Crear
+            Create
         </button>
     </a>
     @livewire("services-list-component")
