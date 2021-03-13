@@ -42,6 +42,6 @@ class User extends Authenticatable
 
     public function package()
     {
-        return $this->hasOne(PackageUser::class);
+        return $this->hasMany(PackageUser::class);
     }
 }
