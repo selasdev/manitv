@@ -56,3 +56,12 @@ Route::post('/home/packages/create', [App\Http\Controllers\PackageController::cl
 Route::get('/home/packages/{package}', [App\Http\Controllers\PackageController::class, 'edit'])->middleware('auth')->name('admin.packages.edit');
 
 Route::put('/home/packages/{package}', [App\Http\Controllers\PackageController::class, 'update'])->middleware('auth')->name('admin.packages.update');
+
+
+//User
+
+Route::get('/home/my-packages', [App\Http\Controllers\PackageUserController::class, 'index'])->middleware('auth')->name('user.packageuser');
+
+Route::get('/home/my-packages/update', [App\Http\Controllers\PackageUserController::class, 'creation'])->middleware('auth')->name('user.packageuser.creation');
+
+Route::post('/home/my-packages/update', [App\Http\Controllers\PackageUserController::class, 'store'])->middleware('auth')->name('user.packageuser.store');

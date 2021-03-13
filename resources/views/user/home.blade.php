@@ -18,7 +18,7 @@
 
                         <div class="d-flex justify-content-center flex-column align-items-center">
                             <p class="card-text">Edit and manage the packages you acquired</p>
-                            <a href="#" class="btn btn-primary mb-4">See Packages</a>
+                            <a href="{{ route('user.packageuser') }}" class="btn btn-primary mb-4">See Packages</a>
                         </div>
 
                         <div class="d-flex justify-content-center flex-column align-items-center">
