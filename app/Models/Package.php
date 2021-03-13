@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Package extends Model
 {
     use HasFactory;
+
+    public function user()
+    {
+        return $this->hasOne(PackageUser::class);
+    }
+
+    public function plans()
+    {
+        return $this->hasMany(PackagePlan::class);
+    }
 }

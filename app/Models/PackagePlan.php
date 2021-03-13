@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class PackagePlan extends Model
 {
     use HasFactory;
+
+    public function package()
+    {
+        return $this->belongsTo(Package::class);
+    }
+
+    public function plan()
+    {
+        return $this->habelongsTosOne(Plan::class);
+    }
 }

@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Channel extends Model
 {
     use HasFactory;
+
+    public function plans()
+    {
+        return $this->hasMany(ChannelPlan::class);
+    }
+
+    public function program()
+    {
+        return $this->hasMany(Program::class);
+    }
 }
