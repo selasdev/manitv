@@ -15,7 +15,6 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
 
             $table->string('username')->unique();
             $table->string('email')->unique();
@@ -26,8 +25,6 @@ class CreateUsersTable extends Migration
             $table->string('role');
 
             $table->string('password');
-
-            $table->foreign('user_id')->references('user_id')->on('package_users');
 
             $table->timestamps();
         });
