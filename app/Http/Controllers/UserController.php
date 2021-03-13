@@ -70,6 +70,6 @@ class UserController extends Controller
 
         $user->save();
 
-        return back()->with('status', 'Succesfully updated');
+        return redirect()->route('admin.user')->with('status', 'Succesfully updated');
     }
 }
