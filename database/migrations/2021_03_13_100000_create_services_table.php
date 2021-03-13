@@ -18,7 +18,6 @@ class CreateServicesTable extends Migration
 
             $table->string('name')->unique();
             $table->boolean('can_have_channel')->default(0);
-
             $table->timestamps();
         });
     }

@@ -23,7 +23,7 @@
 
                         <div class="d-flex justify-content-center flex-column align-items-center">
                             <p class="card-text">Create and edit the services we provide to users.</p>
-                            <a href="#" class="btn btn-primary mb-4">See services</a>
+                            <a href="{{ route('services')}}" class="btn btn-primary mb-4">See services</a>
                         </div>
 
                         <div class="d-flex justify-content-center flex-column align-items-center">

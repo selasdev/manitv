@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
 Route::get('/home/user', [App\Http\Controllers\UserController::class, 'index'])->middleware('auth')->name('admin.user');
 
 Route::get('/home/user/create', [App\Http\Controllers\UserController::class, 'creation'])->middleware('auth')->name('admin.user.creation');
@@ -31,3 +32,15 @@ Route::get('/home/user/{user}', [App\Http\Controllers\UserController::class, 'ed
 
 Route::put('/home/user/{user}', [App\Http\Controllers\UserController::class, 'update'])->middleware('auth')->name('admin.user.update');
 
+//Admin
+Route::get('/home/services', [App\Http\Controllers\ServiceController::class, 'index'])
+->middleware('auth')
+->name('services');
+
+Route::get('/home/services/create', [App\Http\Controllers\ServiceController::class, 'create'])
+->middleware('auth')
+->name('createService');
+
+Route::post('/home/services/create', [App\Http\Controllers\ServiceController::class, 'store'])
+->middleware('auth')
+->name('storeService');
