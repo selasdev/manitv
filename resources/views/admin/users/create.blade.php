@@ -5,10 +5,16 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Register') }}</div>
+                    <div class="card-header">{{ __('User Creation') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register') }}">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+
+                        <form method="POST" action="{{ route('admin.user.store') }}">
                             @csrf
 
                             <div class="form-group row">
@@ -105,7 +111,14 @@
                                 </div>
                             </div>
 
-                            <input type="hidden" id="role" name="role" value="user">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="user" name="role" value="user" checked>
+                                <label class="form-check-label" for="user">User</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" id="admin" name="role" value="admin">
+                                <label class="form-check-label" for="admin">Admin</label>
+                            </div>
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">

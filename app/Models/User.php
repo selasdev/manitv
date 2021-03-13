@@ -17,7 +17,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
+        'username',
+        'firstname',
+        'lastname',
+        'role',
         'email',
         'password',
     ];
@@ -43,5 +46,10 @@ class User extends Authenticatable
     public function package()
     {
         return $this->hasMany(PackageUser::class);
+    }
+
+    public function getGetFullnameAttribute()
+    {
+        return "$this->firstname $this->lastname";
     }
 }

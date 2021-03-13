@@ -22,13 +22,25 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+Route::get('/home/user', [App\Http\Controllers\UserController::class, 'index'])->middleware('auth')->name('admin.user');
+
+Route::get('/home/user/create', [App\Http\Controllers\UserController::class, 'creation'])->middleware('auth')->name('admin.user.creation');
+
+Route::post('/home/user/create', [App\Http\Controllers\UserController::class, 'store'])->middleware('auth')->name('admin.user.store');
+
+Route::get('/home/user/{user}', [App\Http\Controllers\UserController::class, 'edit'])->middleware('auth')->name('admin.user.edit');
+
+Route::put('/home/user/{user}', [App\Http\Controllers\UserController::class, 'update'])->middleware('auth')->name('admin.user.update');
+
 //Admin
-Route::get('/home-admin', function () {
-    return view('admin_dashboard');
-});
+Route::get('/home/services', [App\Http\Controllers\ServiceController::class, 'index'])
+->middleware('auth')
+->name('services');
 
-Route::get('/servicios', [App\Http\Controllers\ServiceController::class, 'index'])->name('services');
+Route::get('/home/services/create', [App\Http\Controllers\ServiceController::class, 'create'])
+->middleware('auth')
+->name('createService');
 
-Route::get('/crear-servicios', [App\Http\Controllers\ServiceController::class, 'create'])->name('createService');
-
-Route::post('/crear-servicios', [App\Http\Controllers\ServiceController::class, 'store'])->name('storeService');
+Route::post('/home/services/create', [App\Http\Controllers\ServiceController::class, 'store'])
+->middleware('auth')
+->name('storeService');
