@@ -33,7 +33,7 @@
 
                         <div class="d-flex justify-content-center flex-column align-items-center">
                             <p class="card-text">Manage the packages we provide to our users.</p>
-                            <a href="#" class="btn btn-primary mb-4">See packages</a>
+                            <a href="{{ route('admin.packages') }}" class="btn btn-primary mb-4">See packages</a>
                         </div>
 
                         <div class="d-flex justify-content-center flex-column align-items-center">

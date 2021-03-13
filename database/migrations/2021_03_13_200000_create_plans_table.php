@@ -19,7 +19,7 @@ class CreatePlansTable extends Migration
 
             $table->string('name')->unique();
             
-            $table->foreign('service_id')->references('id')->on('packages');
+            $table->foreign('service_id')->references('id')->on('services');
 
             $table->double('price');
 

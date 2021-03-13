@@ -22,6 +22,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+//Admin
+
 Route::get('/home/user', [App\Http\Controllers\UserController::class, 'index'])->middleware('auth')->name('admin.user');
 
 Route::get('/home/user/create', [App\Http\Controllers\UserController::class, 'creation'])->middleware('auth')->name('admin.user.creation');
@@ -32,15 +34,25 @@ Route::get('/home/user/{user}', [App\Http\Controllers\UserController::class, 'ed
 
 Route::put('/home/user/{user}', [App\Http\Controllers\UserController::class, 'update'])->middleware('auth')->name('admin.user.update');
 
-//Admin
 Route::get('/home/services', [App\Http\Controllers\ServiceController::class, 'index'])
-->middleware('auth')
-->name('services');
+    ->middleware('auth')
+    ->name('services');
 
 Route::get('/home/services/create', [App\Http\Controllers\ServiceController::class, 'create'])
-->middleware('auth')
-->name('createService');
+    ->middleware('auth')
+    ->name('createService');
 
 Route::post('/home/services/create', [App\Http\Controllers\ServiceController::class, 'store'])
-->middleware('auth')
-->name('storeService');
+    ->middleware('auth')
+    ->name('storeService');
+
+
+Route::get('/home/packages', [App\Http\Controllers\PackageController::class, 'index'])->middleware('auth')->name('admin.packages');
+
+Route::get('/home/packages/create', [App\Http\Controllers\PackageController::class, 'creation'])->middleware('auth')->name('admin.packages.creation');
+
+Route::post('/home/packages/create', [App\Http\Controllers\PackageController::class, 'store'])->middleware('auth')->name('admin.packages.store');
+
+Route::get('/home/packages/{package}', [App\Http\Controllers\PackageController::class, 'edit'])->middleware('auth')->name('admin.packages.edit');
+
+Route::put('/home/packages/{package}', [App\Http\Controllers\PackageController::class, 'update'])->middleware('auth')->name('admin.packages.update');
