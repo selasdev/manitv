@@ -27,6 +27,8 @@ Route::get('/home-admin', function () {
     return view('admin_dashboard');
 });
 
-Route::get('/servicios', function () {
-    return view('services');
-});
+Route::get('/servicios', [App\Http\Controllers\ServiceController::class, 'index'])->name('services');
+
+Route::get('/crear-servicios', [App\Http\Controllers\ServiceController::class, 'create'])->name('createService');
+
+Route::post('/crear-servicios', [App\Http\Controllers\ServiceController::class, 'store'])->name('storeService');
