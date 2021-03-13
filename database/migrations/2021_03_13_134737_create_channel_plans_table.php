@@ -15,6 +15,8 @@ class CreateChannelPlansTable extends Migration
     {
         Schema::create('channel_plans', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('channel_id');
+            $table->foreignId('plan_id');
 
             $table->foreign('channel_id')->references('id')->on('channels');
             $table->foreign('plan_id')->references('id')->on('plans');
