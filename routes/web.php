@@ -20,3 +20,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/home/user', [App\Http\Controllers\UserController::class, 'index'])->middleware('auth')->name('admin.user');
+
+Route::get('/home/user/create', [App\Http\Controllers\UserController::class, 'creation'])->middleware('auth')->name('admin.user.creation');
+
+Route::post('/home/user/create', [App\Http\Controllers\UserController::class, 'store'])->middleware('auth')->name('admin.user.store');
+
+Route::get('/home/user/{user}', [App\Http\Controllers\UserController::class, 'edit'])->middleware('auth')->name('admin.user.edit');
+
+Route::put('/home/user/{user}', [App\Http\Controllers\UserController::class, 'update'])->middleware('auth')->name('admin.user.update');
+

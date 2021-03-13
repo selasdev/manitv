@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(PackageUser::class);
     }
+
+    public function getGetFullnameAttribute()
+    {
+        return "$this->firstname $this->lastname";
+    }
 }
