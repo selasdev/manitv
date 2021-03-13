@@ -33,6 +33,8 @@ Route::get('/home/user/{user}', [App\Http\Controllers\UserController::class, 'ed
 Route::put('/home/user/{user}', [App\Http\Controllers\UserController::class, 'update'])->middleware('auth')->name('admin.user.update');
 
 //Admin
+
+//Services
 Route::get('/home/services', [App\Http\Controllers\ServiceController::class, 'index'])
 ->middleware('auth')
 ->name('services');
@@ -44,3 +46,16 @@ Route::get('/home/services/create', [App\Http\Controllers\ServiceController::cla
 Route::post('/home/services/create', [App\Http\Controllers\ServiceController::class, 'store'])
 ->middleware('auth')
 ->name('storeService');
+
+//Plans
+Route::get('home/plans', [App\Http\Controllers\PlanController::class, 'index'])
+->middleware('auth')
+->name('plans');
+
+Route::get('/home/plans/create', [App\Http\Controllers\PlanController::class, 'create'])
+->middleware('auth')
+->name('createPlan');
+
+Route::post('/home/plans/create', [App\Http\Controllers\PlanController::class, 'store'])
+->middleware('auth')
+->name('storePlan');

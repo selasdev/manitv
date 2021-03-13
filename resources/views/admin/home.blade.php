@@ -28,7 +28,7 @@
 
                         <div class="d-flex justify-content-center flex-column align-items-center">
                             <p class="card-text">See and manage plans to include on our packages</p>
-                            <a href="#" class="btn btn-primary mb-4">See plans</a>
+                            <a href="{{ route('plans') }}" class="btn btn-primary mb-4">See plans</a>
                         </div>
 
                         <div class="d-flex justify-content-center flex-column align-items-center">
