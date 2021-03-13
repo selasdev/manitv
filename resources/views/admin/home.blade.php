@@ -14,7 +14,10 @@
                             </div>
                         @endif
 
-                        {{ __('You are logged in!') }}
+                        <h5 class="card-title">Welcome to the Admin Dashboard</h5>
+
+                        <p class="card-text">Edit and manage the users registered on ManiTV.</p>
+                        <a href="{{ route('admin.user') }}" class="btn btn-primary">See users</a>
                     </div>
                 </div>
             </div>
