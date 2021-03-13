@@ -15,6 +15,7 @@ class CreateProgramTimesTable extends Migration
     {
         Schema::create('program_times', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('program_id');
 
             $table->unsignedBigInteger('day');
             $table->unsignedBigInteger('time_start');

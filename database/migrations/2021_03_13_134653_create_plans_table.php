@@ -15,8 +15,10 @@ class CreatePlansTable extends Migration
     {
         Schema::create('plans', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->foreignId('service_id');
 
+            $table->string('name')->unique();
+            
             $table->foreign('service_id')->references('id')->on('packages');
 
             $table->double('price');
