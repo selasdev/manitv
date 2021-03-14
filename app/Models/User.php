@@ -17,7 +17,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
+        'username',
+        'firstname',
+        'lastname',
+        'role',
         'email',
         'password',
     ];
@@ -29,7 +32,6 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 
     /**
@@ -37,7 +39,17 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    // protected $casts = [
+    //     'email_verified_at' => 'datetime',
+    // ];
+
+    public function package()
+    {
+        return $this->hasMany(PackageUser::class);
+    }
+
+    public function getGetFullnameAttribute()
+    {
+        return "$this->firstname $this->lastname";
+    }
 }
