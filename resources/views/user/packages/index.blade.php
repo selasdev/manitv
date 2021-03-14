@@ -18,6 +18,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Requested plan</th>
+                                    <th>Price</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
@@ -34,6 +35,7 @@
                                     >
                                         <td>{{ $package->id }}</td>
                                         <td>{{ $package->package->name }}</td>
+                                        <td>{{ $package->package->get_price }}</td>
                                         <td>{{ $package->get_state }}</td>
                                     </tr>
                                 @endforeach

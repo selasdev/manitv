@@ -29,7 +29,8 @@
                                 <div class="col-md-6">
                                     <select class="form-select" aria-label="Package" required name="package_id">
                                         @foreach ($packages as $package)
-                                            <option value="{{ $package->id }}">{{ $package->name }}</option>
+                                            <option value="{{ $package->id }}">{{ $package->name }} -
+                                                {{ $package->get_price }}</option>
                                         @endforeach
                                     </select>
 
