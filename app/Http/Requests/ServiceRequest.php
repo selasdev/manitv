@@ -8,7 +8,7 @@ class ServiceRequest extends FormRequest
 {
     public function authorize()
     {
-        return true;
+        return auth()->user()->role === "admin";
     }
 
     public function rules()

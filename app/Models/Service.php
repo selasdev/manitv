@@ -19,7 +19,8 @@ class Service extends Model
         return $this->hasMany(Plan::class);
     }
 
-    public function getHasChannelsEmojiAttribute() {
+    public function getHasChannelsEmojiAttribute()
+    {
         return $this->can_have_channel ? "✅" : "❌";
     }
 }

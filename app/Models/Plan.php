@@ -9,6 +9,12 @@ class Plan extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'price',
+        'service_id'
+    ];
+
     public function package()
     {
         return $this->hasOne(PackagePlan::class);
@@ -22,5 +28,11 @@ class Plan extends Model
     public function channels()
     {
         return $this->hasMany(ChannelPlan::class);
+    }
+
+
+    public function getPriceFormattedAttribute()
+    {
+        return number_format($this->price, 2) . '$';
     }
 }
