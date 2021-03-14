@@ -1,4 +1,4 @@
-<div class="card mr-4 d-flex flex-column justify-content-around" style="width: 18rem;">
+<div class="card mr-4 mb-4 d-flex flex-column justify-content-around" style="width: 18rem;">
     <div class="card-body pb-1">
         <section>
             <h1 class="card-title">{{ $channel->name }}</h5>
@@ -15,11 +15,9 @@
     @endif
     @if($showActions ?? false)
     <div class="flex-end p-2">
-        <a href="{{ route('editChannel', $channel) }}" class="btn btn-primary mt-1 card-link">Edit</a>
-        <a href="{{ route('editChannelPlans', $channel) }}" class='ml-3 card-link'>
-            <button class="btn btn-primary">
-                Edit plans
-            </button>
+        <a href="{{ route('editChannel', $channel) }}" class="btn btn-primary mt-1">Edit</a>
+        <a href="{{ route('editChannelPlans', $channel) }}" class='btn btn-primary mt-1'>
+            Edit plans
         </a>
     </div>
     @endif

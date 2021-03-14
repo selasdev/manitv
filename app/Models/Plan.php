@@ -36,4 +36,8 @@ class Plan extends Model
     {
         return number_format($this->price, 2) . '$';
     }
+
+    public function getCanHaveChannels() {
+        return $this->service->can_have_channel;
+    }
 }

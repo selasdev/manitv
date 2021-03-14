@@ -11,7 +11,8 @@ use App\Models\Service;
 class ChannelPlanController extends AdminRouteController
 {
 
-    public function edit(Channel $channel)
+    //Coming from channels view
+    public function editChannelPlans(Channel $channel)
     {
         return $this->validateUserAndGo(function () use ($channel) {
             $plans = Service::where('can_have_channel', 1)
@@ -36,8 +37,9 @@ class ChannelPlanController extends AdminRouteController
             ]);
         });
     }
-    
-    public function store(EditChannelPlansRequest $request, Channel $channel)
+
+    //Coming from channels view
+    public function storeChannelPlans(EditChannelPlansRequest $request, Channel $channel)
     {
         $allData = $request->all();
         $addedPlans = ChannelPlan::where('channel_id', $channel->id);
@@ -57,5 +59,48 @@ class ChannelPlanController extends AdminRouteController
         }
 
         return redirect()->route('channels')->with('status', "$channel->name plans updated.");
+    }
+
+    //Comming from plans view
+    public function editPlanChannels(Plan $plan)
+    {
+        return $this->validateUserAndGo(function () use ($plan) {
+            $channels = Channel::all();
+            $addedChannels = $plan->channels;
+
+            $isAdded = function (Channel $channel) use ($addedChannels) {
+                foreach ($addedChannels as $addedChannel) {
+                    if ($channel->id == $addedChannel->id) {
+                        return true;
+                    }
+                }
+                return false;
+            };
+
+            return view('plans.edit-channels', compact('plan', 'channels', 'isAdded'));
+        });
+    }
+
+    //Comming from plans view
+    public function storePlanChannels(EditChannelPlansRequest $request, Plan $plan)
+    {
+        $allData = $request->all();
+        $addedChannels = ChannelPlan::where('plan_id', $plan->id);
+        $addedChannels->delete();
+
+        foreach ($allData as $key => $channelId) {
+            if (substr($key, 0, 7) !== 'channel') {
+                continue;
+            }
+            $channelPlan = ChannelPlan::create(
+                [
+                    'channel_id' => $channelId,
+                    'plan_id' => $plan->id
+                ]
+            );
+            $channelPlan->save();
+        }
+
+        return redirect()->route('plans')->with('status', "$plan->name channels updated.");
     }
 }
