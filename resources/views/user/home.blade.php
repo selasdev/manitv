@@ -23,7 +23,7 @@
 
                         <div class="d-flex justify-content-center flex-column align-items-center">
                             <p class="card-text">See your bills on ManiTV</p>
-                            <a href="#" class="btn btn-primary mb-4">See Bills</a>
+                            <a href="{{ route('user.packageuser.bills') }}" class="btn btn-primary mb-4">See Bills</a>
                         </div>
 
                     </div>

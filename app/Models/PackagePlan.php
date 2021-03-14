@@ -9,6 +9,11 @@ class PackagePlan extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'plan_id',
+        'package_id',
+    ];
+
     public function package()
     {
         return $this->belongsTo(Package::class);
@@ -16,6 +21,6 @@ class PackagePlan extends Model
 
     public function plan()
     {
-        return $this->habelongsTosOne(Plan::class);
+        return $this->belongsTo(Plan::class);
     }
 }

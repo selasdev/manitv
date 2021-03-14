@@ -23,6 +23,13 @@
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
         <div class="form-group">
+            <label for="description">Description *</label>
+            <textarea name="description" id="description" class="form-control" required>{{ $plan->description }}</textarea>
+        </div>
+        @error('description')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+        <div class="form-group">
             <label for="name">Price (USD) *</label>
             <input type='number' step='0.01' placeholder='0.00' name="price" id="price" class="form-control" value="{{ $plan->price }}" required>
         </div>

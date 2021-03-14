@@ -45,37 +45,37 @@ Route::get('/home/services/create', [App\Http\Controllers\ServiceController::cla
     ->name('createService');
 
 Route::post('/home/services/create', [App\Http\Controllers\ServiceController::class, 'store'])
-->middleware('auth')
-->name('storeService');
+    ->middleware('auth')
+    ->name('storeService');
 
 Route::get('/home/services/{service}/edit', [App\Http\Controllers\ServiceController::class, 'edit'])
-->middleware('auth')
-->name('editService');
+    ->middleware('auth')
+    ->name('editService');
 
 Route::put('/home/services/{service}/edit', [App\Http\Controllers\ServiceController::class, 'update'])
-->middleware('auth')
-->name('putService');
+    ->middleware('auth')
+    ->name('putService');
 
 //Plans
-Route::get('/home/plans', [App\Http\Controllers\PlanController::class, 'index'])
-->middleware('auth')
-->name('plans');
+Route::get('home/plans', [App\Http\Controllers\PlanController::class, 'index'])
+    ->middleware('auth')
+    ->name('plans');
 
 Route::get('/home/plans/create', [App\Http\Controllers\PlanController::class, 'create'])
-->middleware('auth')
-->name('createPlan');
+    ->middleware('auth')
+    ->name('createPlan');
 
 Route::post('/home/plans/create', [App\Http\Controllers\PlanController::class, 'store'])
-->middleware('auth')
-->name('storePlan');
+    ->middleware('auth')
+    ->name('storePlan');
 
 Route::get('/home/plans/{plan}/edit', [App\Http\Controllers\PlanController::class, 'edit'])
-->middleware('auth')
-->name('editPlan');
+    ->middleware('auth')
+    ->name('editPlan');
 
 Route::put('/home/plans/{plan}/edit', [App\Http\Controllers\PlanController::class, 'update'])
-->middleware('auth')
-->name('putPlan');
+    ->middleware('auth')
+    ->name('putPlan');
 
 //Channels
 
@@ -118,6 +118,12 @@ Route::get('/home/packages/{package}', [App\Http\Controllers\PackageController::
 
 Route::put('/home/packages/{package}', [App\Http\Controllers\PackageController::class, 'update'])->middleware('auth')->name('admin.packages.update');
 
+Route::get('/home/userpackages', [App\Http\Controllers\PackageUserController::class, 'indexAdmin'])->middleware('auth')->name('admin.packageusers.manage');
+
+Route::get('/home/userpackages/{package}', [App\Http\Controllers\PackageUserController::class, 'details'])->middleware('auth')->name('admin.packageusers.details');
+
+Route::put('/home/userpackages/{package}', [App\Http\Controllers\PackageUserController::class, 'update'])->middleware('auth')->name('admin.packageusers.update');
+
 
 //User
 
@@ -126,3 +132,6 @@ Route::get('/home/my-packages', [App\Http\Controllers\PackageUserController::cla
 Route::get('/home/my-packages/update', [App\Http\Controllers\PackageUserController::class, 'creation'])->middleware('auth')->name('user.packageuser.creation');
 
 Route::post('/home/my-packages/update', [App\Http\Controllers\PackageUserController::class, 'store'])->middleware('auth')->name('user.packageuser.store');
+
+Route::get('/home/bills', [App\Http\Controllers\PackageUserController::class, 'bills'])->middleware('auth')->name('user.packageuser.bills');
+

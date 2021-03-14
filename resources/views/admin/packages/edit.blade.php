@@ -1,5 +1,14 @@
 @extends('layouts.app')
 
+<?php $checkifContains = function ($plans, $cpkg) {
+foreach ($plans as $plan) {
+if ($plan->plan_id === $cpkg) {
+return true;
+}
+}
+return false;
+}; ?>
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -47,6 +56,20 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-6">
+                                    @foreach ($plans as $plan)
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="plan-{{ $plan->id }}"
+                                                value="{{ $plan->id }}" name="plan-{{ $plan->id }}" @if ($checkifContains($package->plans, $plan->id)) checked @endif>
+                                            <label class="form-check-label"
+                                                for="plan-{{ $plan->id }}">{{ $plan->name }} $
+                                                {{ $plan->price }},00</label>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
 
