@@ -1,3 +1,33 @@
+## Project Description
+
+This project was a college project for UNET (Universidad Nacional Experimental del Táchira), for the Programming II course, the project consists of a system based on a php framework. It consists on a system with user/admin flows, on which the admin can load different services, plans, packages with plans, the plans can be cable plans with tv channels, shows and programmation of the channel. The users can request package changes and see their packages bills, as the admin needs to approve/reject them. More info at
+
+## Contributors
+
+<p align="center">
+<a href="https://github.com/selasdev"><img src="https://avatars.githubusercontent.com/u/25758505?s=460&u=b62341d5baa8bd7467ab8aab32d345ecd4b9ed98&v=4" alt="Carlos Pic"></a>
+<a href="https://github.com/selasdev">[Carlos Rosales</a>
+<a href="https://github.com/eagskunst"><img src="https://avatars.githubusercontent.com/u/23042932?s=460&u=6687021e0b4a68702d3b862e1c7a60df56e839b3&v=4" alt="Emmanuel Pic"></a>
+<a href="https://github.com/eagskunst">Emmanuel Guerra</a>
+</p>
+
+[Carlos Rosales](https://github.com/selasdev)
+[Emmanuel Guerra](https://github.com/eagskunst)
+
+### Diagram
+
+The app was developed following the following [DB Diagram](https://dbdiagram.io/d/6046d8edfcdcb6230b232d89)
+
+## License
+
+This project was developed within the use of Laravel Framework for PHP.
+
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+
+## About Laravel
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
@@ -6,8 +36,6 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
-
-## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
@@ -20,43 +48,3 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 - [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
