@@ -9,6 +9,8 @@ class PlanComponent extends Component
 
     public $plan;
     
+    public $showActions;
+
     public function render()
     {
         return view('livewire.plan-component');

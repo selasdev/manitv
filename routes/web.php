@@ -48,11 +48,11 @@ Route::post('/home/services/create', [App\Http\Controllers\ServiceController::cl
 ->middleware('auth')
 ->name('storeService');
 
-Route::get('/home/services/{service}', [App\Http\Controllers\ServiceController::class, 'edit'])
+Route::get('/home/services/{service}/edit', [App\Http\Controllers\ServiceController::class, 'edit'])
 ->middleware('auth')
 ->name('editService');
 
-Route::put('/home/services/{service}', [App\Http\Controllers\ServiceController::class, 'update'])
+Route::put('/home/services/{service}/edit', [App\Http\Controllers\ServiceController::class, 'update'])
 ->middleware('auth')
 ->name('putService');
 
@@ -68,6 +68,14 @@ Route::get('/home/plans/create', [App\Http\Controllers\PlanController::class, 'c
 Route::post('/home/plans/create', [App\Http\Controllers\PlanController::class, 'store'])
 ->middleware('auth')
 ->name('storePlan');
+
+Route::get('/home/plans/{plan}/edit', [App\Http\Controllers\PlanController::class, 'edit'])
+->middleware('auth')
+->name('editPlan');
+
+Route::put('/home/plans/{plan}/edit', [App\Http\Controllers\PlanController::class, 'update'])
+->middleware('auth')
+->name('putPlan');
 
 Route::get('/home/packages', [App\Http\Controllers\PackageController::class, 'index'])->middleware('auth')->name('admin.packages');
 

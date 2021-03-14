@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ServiceEditRequest;
+use App\Http\Requests\ServiceRequest;
 use Illuminate\Http\Request;
 use App\Models\Service;
 
@@ -33,7 +34,7 @@ class ServiceController extends AdminRouteController
 
         $service->save();
 
-        return redirect()->route('services')->with('status', 'Servicio creado.');
+        return redirect()->route('services')->with('status', 'Service created.');
     }
 
     public function edit(Service $service)
@@ -59,6 +60,6 @@ class ServiceController extends AdminRouteController
 
         $service->save();
 
-        return redirect()->route('services')->with('status', 'Servicio actualizado');
+        return redirect()->route('services')->with('status', 'Service updated');
     }
 }

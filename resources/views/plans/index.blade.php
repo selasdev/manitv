@@ -7,10 +7,10 @@
 </div>
 @endif
 <div>
-    <h2 class="text-gray-700 text-5xl mb-4">Planes</h2>
+    <h2 class="text-gray-700 text-5xl mb-4">Plans</h2>
     <a href="{{ route('createPlan') }}">
         <button class="btn btn-primary">
-            Crear
+            Create
         </button>
     </a>
     @livewire("plans-list-component")

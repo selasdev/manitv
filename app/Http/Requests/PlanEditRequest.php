@@ -4,16 +4,17 @@ namespace App\Http\Requests;
 
 use Illuminate\Validation\Rule;
 
-class ServiceEditRequest extends ServiceRequest {
+class PlanEditRequest extends PlanRequest
+{
 
-    public function rules() {
+    public function rules()
+    {
         $rules = parent::rules();
         $rules['name'] = [
             'required',
-            Rule::unique('services')->ignore($this->service->id)
+            Rule::unique('plans')->ignore($this->plan->id)
         ];
 
         return $rules;
     }
-
 }
