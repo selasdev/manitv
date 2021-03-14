@@ -57,7 +57,7 @@ Route::put('/home/services/{service}/edit', [App\Http\Controllers\ServiceControl
 ->name('putService');
 
 //Plans
-Route::get('home/plans', [App\Http\Controllers\PlanController::class, 'index'])
+Route::get('/home/plans', [App\Http\Controllers\PlanController::class, 'index'])
 ->middleware('auth')
 ->name('plans');
 
@@ -76,6 +76,28 @@ Route::get('/home/plans/{plan}/edit', [App\Http\Controllers\PlanController::clas
 Route::put('/home/plans/{plan}/edit', [App\Http\Controllers\PlanController::class, 'update'])
 ->middleware('auth')
 ->name('putPlan');
+
+//Channels
+
+Route::get('/home/channels', [App\Http\Controllers\ChannelController::class, 'index'])
+->middleware('auth')
+->name('channels');
+
+Route::get('/home/channels/create', [App\Http\Controllers\ChannelController::class, 'create'])
+->middleware('auth')
+->name('createChannel');
+
+Route::post('/home/channels/create', [App\Http\Controllers\ChannelController::class, 'store'])
+->middleware('auth')
+->name('storeChannel');
+
+Route::get('/home/channels/{channel}/edit', [App\Http\Controllers\ChannelController::class, 'edit'])
+->middleware('auth')
+->name('editChannel');
+
+Route::put('/home/channels/{channel}/edit', [App\Http\Controllers\ChannelController::class, 'update'])
+->middleware('auth')
+->name('putChannel');
 
 Route::get('/home/packages', [App\Http\Controllers\PackageController::class, 'index'])->middleware('auth')->name('admin.packages');
 
