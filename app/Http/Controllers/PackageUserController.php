@@ -32,6 +32,17 @@ class PackageUserController extends Controller
         }
     }
 
+    public function bills()
+    {
+        if (auth()->user()->role === "user") {
+            $packages = PackageUser::where([['user_id', auth()->user()->id], ['state', '!=', 'waiting'], ['state', '!=', 'rejected']])->orderBy('created_at', 'desc')->get();
+
+            return view('user.packages.bills', compact('packages'));
+        } else {
+            return redirect()->route('home');
+        }
+    }
+
     public function creation()
     {
 

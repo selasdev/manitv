@@ -101,3 +101,6 @@ Route::get('/home/my-packages', [App\Http\Controllers\PackageUserController::cla
 Route::get('/home/my-packages/update', [App\Http\Controllers\PackageUserController::class, 'creation'])->middleware('auth')->name('user.packageuser.creation');
 
 Route::post('/home/my-packages/update', [App\Http\Controllers\PackageUserController::class, 'store'])->middleware('auth')->name('user.packageuser.store');
+
+Route::get('/home/bills', [App\Http\Controllers\PackageUserController::class, 'bills'])->middleware('auth')->name('user.packageuser.bills');
+

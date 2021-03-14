@@ -26,6 +26,7 @@ class PlanRequest extends FormRequest
         return [
             'service_id' => 'required',
             'name' => 'required|unique:plans',
+            'description' => 'required',
             'price' => 'required|numeric|gt:0'
         ];
     }
