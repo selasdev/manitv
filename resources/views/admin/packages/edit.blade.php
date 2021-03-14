@@ -67,7 +67,9 @@ return false;
                                                 value="{{ $plan->id }}" name="plan-{{ $plan->id }}" @if ($checkifContains($package->plans, $plan->id)) checked @endif>
                                             <label class="form-check-label"
                                                 for="plan-{{ $plan->id }}">{{ $plan->name }} $
-                                                {{ $plan->price }},00</label>
+                                                {{ $plan->priceFormatted }}</label>
+                                            
+                                            @livewire('channels-list-modal-component', ['plan' => $plan]);
                                         </div>
                                     @endforeach
                                 </div>

@@ -13,7 +13,7 @@
         <a href="{{ route('editPlan', $plan) }}" class="btn btn-primary mt-1 card-link">Edit</a>
         @if($plan->getCanHaveChannels())
         <a href="{{ route('editPlanChannels', $plan) }}" class='btn btn-primary mt-1 card-link'>
-            Edit plans
+            Edit channels
         </a>
         @endif
     </div>
