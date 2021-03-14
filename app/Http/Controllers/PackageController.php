@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Package;
+use App\Models\Plan;
+use App\Models\PackagePlan;
+
 
 use App\Http\Requests\PackageRequest;
+use App\Http\Requests\PackageEditRequest;
 
 class PackageController extends Controller
 {
@@ -23,7 +27,9 @@ class PackageController extends Controller
     {
 
         if (auth()->user()->role === "admin") {
-            return view('admin.packages.create');
+            $plans = Plan::all();
+
+            return view('admin.packages.create', compact('plans'));
         } else {
             return redirect()->route('home');
         }
@@ -33,7 +39,9 @@ class PackageController extends Controller
     {
 
         if (auth()->user()->role === "admin") {
-            return view('admin.packages.edit', compact('package'));
+            $plans = Plan::all();
+
+            return view('admin.packages.edit', compact('package', 'plans'));
         } else {
             return redirect()->route('home');
         }
@@ -41,6 +49,9 @@ class PackageController extends Controller
 
     public function store(PackageRequest $request)
     {
+
+
+
         $package = Package::create([
             'name' => $request['name'],
             'price' => $request['price'],
@@ -48,10 +59,23 @@ class PackageController extends Controller
 
         $package->save();
 
+        foreach ($request->all() as $key => $value) {
+            if (strpos($key, "plan") !== false) {
+                $packageplan = PackagePlan::create(
+                    [
+                        'plan_id' => $value,
+                        'package_id' => $package->id,
+                    ]
+                );
+
+                $packageplan->save();
+            }
+        }
+
         return back()->with('status', 'Succesfully created');
     }
 
-    public function update(PackageRequest $request, Package $package)
+    public function update(PackageEditRequest $request, Package $package)
     {
         $package->update([
             'name' => $request['name'],
@@ -59,6 +83,23 @@ class PackageController extends Controller
         ]);
 
         $package->save();
+
+        $oldPackagePlans = PackagePlan::where('package_id', $package->id);
+
+        $oldPackagePlans->delete();
+
+        foreach ($request->all() as $key => $value) {
+            if (strpos($key, "plan") !== false) {
+                $packageplan = PackagePlan::create(
+                    [
+                        'plan_id' => $value,
+                        'package_id' => $package->id,
+                    ]
+                );
+
+                $packageplan->save();
+            }
+        }
 
         return redirect()->route('admin.packages')->with('status', 'Succesfully updated');
     }
