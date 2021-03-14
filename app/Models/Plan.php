@@ -12,12 +12,13 @@ class Plan extends Model
     protected $fillable = [
         'name',
         'price',
-        'service_id'
+        'service_id',
+        'description'
     ];
 
-    public function package()
+    public function packages()
     {
-        return $this->hasOne(PackagePlan::class);
+        return $this->hasMany(PackagePlan::class);
     }
 
     public function service()

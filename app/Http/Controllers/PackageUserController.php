@@ -6,15 +6,27 @@ use App\Models\PackageUser;
 
 use App\Http\Requests\PackageUserRequest;
 use App\Models\Package;
+use Illuminate\Http\Request;
 
 class PackageUserController extends Controller
 {
     public function index()
     {
         if (auth()->user()->role === "user") {
-            $packages = PackageUser::where('user_id', auth()->user()->id)->orderBy('updated_at', 'desc')->get();
+            $packages = PackageUser::where('user_id', auth()->user()->id)->orderBy('created_at', 'desc')->get();
 
             return view('user.packages.index', compact('packages'));
+        } else {
+            return redirect()->route('home');
+        }
+    }
+
+    public function indexAdmin()
+    {
+        if (auth()->user()->role === "admin") {
+            $packages = PackageUser::where('state', 'waiting')->orderBy('updated_at', 'desc')->get();
+
+            return view('admin.userpackages.index', compact('packages'));
         } else {
             return redirect()->route('home');
         }
@@ -33,11 +45,11 @@ class PackageUserController extends Controller
         }
     }
 
-    public function edit(PackageUser $package)
+    public function details(PackageUser $package)
     {
 
         if (auth()->user()->role === "admin") {
-            return view('admin.packages.edit', compact('package'));
+            return view('admin.userpackages.details', compact('package'));
         } else {
             return redirect()->route('home');
         }
@@ -60,15 +72,29 @@ class PackageUserController extends Controller
         return redirect()->route('user.packageuser')->with('status', 'Succesfully created ');
     }
 
-    public function update(PackageUserRequest $request, PackageUser $package)
+    public function update(Request $request, PackageUser $package)
     {
-        $package->update([
-            'name' => $request['name'],
-            'price' => $request['price'],
-        ]);
+        if ($request->all()['status'] === "Reject") {
+            $package->update([
+                'state' => 'rejected'
+            ]);
+            $package->save();
 
-        $package->save();
+            return redirect()->route('admin.packageusers.manage')->with('status', 'Request Rejected ');
+        } else {
+            $oldRequests = PackageUser::where([['user_id', $package->user->id], ['state', 'approved']]);
 
-        return redirect()->route('admin.packages')->with('status', 'Succesfully updated');
+            $oldRequests->update([
+                'state' => 'expired'
+            ]);
+
+            $package->update([
+                'state' => 'approved'
+            ]);
+
+            $package->save();
+
+            return redirect()->route('admin.packageusers.manage')->with('status', 'Request Approved ');
+        }
     }
 }
