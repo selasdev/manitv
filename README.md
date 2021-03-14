@@ -6,10 +6,17 @@ This project was a college project for UNET (Universidad Nacional Experimental d
 
 <p align="center">
 <a href="https://github.com/selasdev"><img src="https://avatars.githubusercontent.com/u/25758505?s=460&u=b62341d5baa8bd7467ab8aab32d345ecd4b9ed98&v=4" alt="Carlos Pic"></a>
-<a href="https://github.com/selasdev">[Carlos Rosales</a>
+<a href="https://github.com/selasdev">Carlos Rosales</a>
+</p>
+
+<p align="center">
 <a href="https://github.com/eagskunst"><img src="https://avatars.githubusercontent.com/u/23042932?s=460&u=6687021e0b4a68702d3b862e1c7a60df56e839b3&v=4" alt="Emmanuel Pic"></a>
 <a href="https://github.com/eagskunst">Emmanuel Guerra</a>
 </p>
+
+
+
+
 
 [Carlos Rosales](https://github.com/selasdev)
 [Emmanuel Guerra](https://github.com/eagskunst)
