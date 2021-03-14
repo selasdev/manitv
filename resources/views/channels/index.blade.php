@@ -7,12 +7,14 @@
 </div>
 @endif
 <div>
-    <h2 class="text-gray-700 text-5xl mb-4">Plans</h2>
-    <a href="{{ route('createChannel') }}">
-        <button class="btn btn-primary">
-            Create
-        </button>
-    </a>
+    <h2 class="text-gray-700 text-5xl mb-4">Channels</h2>
+    <div class="d-flex flex-row">
+        <a href="{{ route('createChannel') }}">
+            <button class="btn btn-primary">
+                Create
+            </button>
+        </a>
+    </div>
     @livewire("channel-list-component")
 </div>
 @endsection

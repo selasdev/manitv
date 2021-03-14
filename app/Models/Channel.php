@@ -16,7 +16,7 @@ class Channel extends Model
 
     public function plans()
     {
-        return $this->hasMany(ChannelPlan::class);
+        return $this->belongsToMany(Plan::class, 'channel_plans', 'channel_id', 'plan_id');
     }
 
     public function program()

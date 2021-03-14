@@ -99,6 +99,15 @@ Route::put('/home/channels/{channel}/edit', [App\Http\Controllers\ChannelControl
 ->middleware('auth')
 ->name('putChannel');
 
+//Channels plans
+Route::get('/home/channels/{channel}/plans/edit', [App\Http\Controllers\ChannelPlanController::class, 'edit'])
+->middleware('auth')
+->name('editChannelPlans');
+
+Route::post('/home/channels/{channel}/plans/edit', [App\Http\Controllers\ChannelPlanController::class, 'store'])
+->middleware('auth')
+->name('storeChannelPlans');
+
 Route::get('/home/packages', [App\Http\Controllers\PackageController::class, 'index'])->middleware('auth')->name('admin.packages');
 
 Route::get('/home/packages/create', [App\Http\Controllers\PackageController::class, 'creation'])->middleware('auth')->name('admin.packages.creation');
