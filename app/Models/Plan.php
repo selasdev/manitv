@@ -28,12 +28,16 @@ class Plan extends Model
 
     public function channels()
     {
-        return $this->hasMany(ChannelPlan::class);
+        return $this->belongsToMany(Channel::class, 'channel_plans', 'plan_id', 'channel_id');
     }
 
 
     public function getPriceFormattedAttribute()
     {
         return number_format($this->price, 2) . '$';
+    }
+
+    public function getCanHaveChannels() {
+        return $this->service->can_have_channel;
     }
 }

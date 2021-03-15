@@ -77,6 +77,79 @@ Route::put('/home/plans/{plan}/edit', [App\Http\Controllers\PlanController::clas
     ->middleware('auth')
     ->name('putPlan');
 
+//Channels
+Route::get('/home/channels', [App\Http\Controllers\ChannelController::class, 'index'])
+    ->middleware('auth')
+    ->name('channels');
+
+Route::get('/home/channels/create', [App\Http\Controllers\ChannelController::class, 'create'])
+    ->middleware('auth')
+    ->name('createChannel');
+
+Route::post('/home/channels/create', [App\Http\Controllers\ChannelController::class, 'store'])
+    ->middleware('auth')
+    ->name('storeChannel');
+
+Route::get('/home/channels/{channel}/edit', [App\Http\Controllers\ChannelController::class, 'edit'])
+    ->middleware('auth')
+    ->name('editChannel');
+
+Route::put('/home/channels/{channel}/edit', [App\Http\Controllers\ChannelController::class, 'update'])
+    ->middleware('auth')
+    ->name('putChannel');
+
+//Channels plans
+Route::get('/home/channels/{channel}/plans/edit', [App\Http\Controllers\ChannelPlanController::class, 'editChannelPlans'])
+    ->middleware('auth')
+    ->name('editChannelPlans');
+
+Route::post('/home/channels/{channel}/plans/edit', [App\Http\Controllers\ChannelPlanController::class, 'storeChannelPlans'])
+    ->middleware('auth')
+    ->name('storeChannelPlans');
+
+Route::get('/home/plans/{plan}/channel/edit', [App\Http\Controllers\ChannelPlanController::class, 'editPlanChannels'])
+    ->middleware('auth')
+    ->name('editPlanChannels');
+
+Route::post('/home/plans/{plan}/channel/edit', [App\Http\Controllers\ChannelPlanController::class, 'storePlanChannels'])
+    ->middleware('auth')
+    ->name('storePlanChannels');
+
+//Programs
+Route::get('/home/programs', [App\Http\Controllers\ProgramController::class, 'index'])
+    ->middleware('auth')
+    ->name('programs');
+
+Route::get('/home/programs/create', [App\Http\Controllers\ProgramController::class, 'create'])
+    ->middleware('auth')
+    ->name('createProgram');
+
+Route::post('/home/programs/create', [App\Http\Controllers\ProgramController::class, 'store'])
+    ->middleware('auth')
+    ->name('storeProgram');
+
+Route::get('/home/programs/{program}/edit', [App\Http\Controllers\ProgramController::class, 'edit'])
+    ->middleware('auth')
+    ->name('editProgram');
+
+Route::put('/home/programs/{program}/edit', [App\Http\Controllers\ProgramController::class, 'update'])
+    ->middleware('auth')
+    ->name('putProgram');
+
+//Schedule / ProgramTimes
+
+Route::get('home/channels/{channel}/schedule', [App\Http\Controllers\ProgramTimeController::class, 'index'])
+    ->middleware('auth')
+    ->name('channelSchedule');
+
+Route::get('home/channels/{channel}/schedule/add', [App\Http\Controllers\ProgramTimeController::class, 'add'])
+    ->middleware('auth')
+    ->name('addProgramSchedule');
+
+Route::post('home/channels/{channel}/schedule/add', [App\Http\Controllers\ProgramTimeController::class, 'store'])
+    ->middleware('auth')
+    ->name('storeProgramTime');
+
 Route::get('/home/packages', [App\Http\Controllers\PackageController::class, 'index'])->middleware('auth')->name('admin.packages');
 
 Route::get('/home/packages/create', [App\Http\Controllers\PackageController::class, 'creation'])->middleware('auth')->name('admin.packages.creation');
@@ -103,4 +176,3 @@ Route::get('/home/my-packages/update', [App\Http\Controllers\PackageUserControll
 Route::post('/home/my-packages/update', [App\Http\Controllers\PackageUserController::class, 'store'])->middleware('auth')->name('user.packageuser.store');
 
 Route::get('/home/bills', [App\Http\Controllers\PackageUserController::class, 'bills'])->middleware('auth')->name('user.packageuser.bills');
-

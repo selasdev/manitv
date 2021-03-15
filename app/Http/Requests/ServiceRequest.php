@@ -22,8 +22,8 @@ class ServiceRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'El nombre del servicio es requerido',
-            'name.unique' => 'El nombre del servicio ya existe',
+            'name.required' => 'Service name cannot be empty',
+            'name.unique' => 'A service with that already name exists.',
         ];
     }
 }

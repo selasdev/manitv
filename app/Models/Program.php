@@ -9,6 +9,11 @@ class Program extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'channel_id'
+    ];
+
     public function channel()
     {
         return $this->belongsTo(Channel::class);
@@ -16,6 +21,6 @@ class Program extends Model
 
     public function times()
     {
-        return $this->hasMany(ProgramTime::class);
+        return $this->hasMany(ProgramTime::class, 'program_id', 'id');
     }
 }

@@ -1,20 +1,11 @@
-@extends('layouts.app')
-
-<?php $checkifContains = function ($plans, $cpkg) {
-foreach ($plans as $plan) {
-if ($plan->plan_id === $cpkg) {
-return true;
-}
-}
-return false;
-}; ?>
+@extends("layouts.app")
 
 @section('content')
-    <div class="container">
+<div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Package Edition') }}</div>
+                    <div class="card-header">{{ __('Edit program') }}</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -23,7 +14,7 @@ return false;
                             </div>
                         @endif
 
-                        <form method="POST" action="{{ route('admin.packages.update', $package) }}">
+                        <form method="POST" action="{{ route('putProgram', $program) }}">
                             @csrf
                             @method('PUT')
 
@@ -32,8 +23,7 @@ return false;
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                                        name="name" value="{{ old('name', $package->name) }}" required autocomplete="name"
-                                        autofocus>
+                                        name="name" value="{{ $program->name }}" required autocomplete="name" autofocus>
 
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
@@ -44,38 +34,18 @@ return false;
                             </div>
 
                             <div class="form-group row">
-                                <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('Price') }}</label>
+                                <label for="number" class="col-md-4 col-form-label text-md-right">{{ __('Channel: ') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="price" type="number"
-                                        class="form-control @error('price') is-invalid @enderror" name="price"
-                                        value="{{ old('price', $package->price) }}" required autocomplete="price">
+                                    @livewire('channel-selector-component', ['channel_id' => $program->channel_id])
 
-                                    @error('price')
+                                    @error('number')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                 </div>
                             </div>
-
-                            <div class="form-group row">
-                                <div class="col-md-6">
-                                    @foreach ($plans as $plan)
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" id="plan-{{ $plan->id }}"
-                                                value="{{ $plan->id }}" name="plan-{{ $plan->id }}" @if ($checkifContains($package->plans, $plan->id)) checked @endif>
-                                            <label class="form-check-label"
-                                                for="plan-{{ $plan->id }}">{{ $plan->name }} -
-                                                {{ $plan->priceFormatted }}</label>
-                                            
-                                            @livewire('channels-list-modal-component', ['plan' => $plan]);
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-
-
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-primary">

@@ -17,7 +17,7 @@ class CreateProgramTimesTable extends Migration
             $table->id();
             $table->foreignId('program_id');
 
-            $table->unsignedBigInteger('day');
+            $table->string('day');
             $table->unsignedBigInteger('time_start');
             $table->unsignedBigInteger('time_end');
 

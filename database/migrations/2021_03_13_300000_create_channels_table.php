@@ -18,6 +18,8 @@ class CreateChannelsTable extends Migration
 
             $table->string('name')->unique();
 
+            $table->unsignedTinyInteger('number')->unique();
+
             $table->timestamps();
         });
     }
