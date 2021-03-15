@@ -35,6 +35,9 @@
             @error('price')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
+            <div class="alert alert-info" role="alert">
+                Channels can be added/removed after creation if applies.
+            </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary">
             </div>

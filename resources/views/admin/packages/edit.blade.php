@@ -66,7 +66,7 @@ return false;
                                             <input class="form-check-input" type="checkbox" id="plan-{{ $plan->id }}"
                                                 value="{{ $plan->id }}" name="plan-{{ $plan->id }}" @if ($checkifContains($package->plans, $plan->id)) checked @endif>
                                             <label class="form-check-label"
-                                                for="plan-{{ $plan->id }}">{{ $plan->name }} $
+                                                for="plan-{{ $plan->id }}">{{ $plan->name }} -
                                                 {{ $plan->priceFormatted }}</label>
                                             
                                             @livewire('channels-list-modal-component', ['plan' => $plan]);

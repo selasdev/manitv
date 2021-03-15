@@ -9,6 +9,11 @@ class Program extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'channel_id'
+    ];
+
     public function channel()
     {
         return $this->belongsTo(Channel::class);

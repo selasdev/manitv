@@ -115,6 +115,27 @@ Route::post('/home/plans/{plan}/channel/edit', [App\Http\Controllers\ChannelPlan
     ->middleware('auth')
     ->name('storePlanChannels');
 
+//Programs
+Route::get('/home/programs', [App\Http\Controllers\ProgramController::class, 'index'])
+    ->middleware('auth')
+    ->name('programs');
+
+Route::get('/home/programs/create', [App\Http\Controllers\ProgramController::class, 'create'])
+    ->middleware('auth')
+    ->name('createProgram');
+
+Route::post('/home/programs/create', [App\Http\Controllers\ProgramController::class, 'store'])
+    ->middleware('auth')
+    ->name('storeProgram');
+
+Route::get('/home/programs/{program}/edit', [App\Http\Controllers\ProgramController::class, 'edit'])
+    ->middleware('auth')
+    ->name('editProgram');
+
+Route::put('/home/programs/{program}/edit', [App\Http\Controllers\ProgramController::class, 'update'])
+    ->middleware('auth')
+    ->name('putProgram');
+
 Route::get('/home/packages', [App\Http\Controllers\PackageController::class, 'index'])->middleware('auth')->name('admin.packages');
 
 Route::get('/home/packages/create', [App\Http\Controllers\PackageController::class, 'creation'])->middleware('auth')->name('admin.packages.creation');
