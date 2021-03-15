@@ -136,6 +136,20 @@ Route::put('/home/programs/{program}/edit', [App\Http\Controllers\ProgramControl
     ->middleware('auth')
     ->name('putProgram');
 
+//Schedule / ProgramTimes
+
+Route::get('home/channels/{channel}/schedule', [App\Http\Controllers\ProgramTimeController::class, 'index'])
+    ->middleware('auth')
+    ->name('channelSchedule');
+
+Route::get('home/channels/{channel}/schedule/add', [App\Http\Controllers\ProgramTimeController::class, 'add'])
+    ->middleware('auth')
+    ->name('addProgramSchedule');
+
+Route::post('home/channels/{channel}/schedule/add', [App\Http\Controllers\ProgramTimeController::class, 'store'])
+    ->middleware('auth')
+    ->name('storeProgramTime');
+
 Route::get('/home/packages', [App\Http\Controllers\PackageController::class, 'index'])->middleware('auth')->name('admin.packages');
 
 Route::get('/home/packages/create', [App\Http\Controllers\PackageController::class, 'creation'])->middleware('auth')->name('admin.packages.creation');

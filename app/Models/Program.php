@@ -21,6 +21,6 @@ class Program extends Model
 
     public function times()
     {
-        return $this->hasMany(ProgramTime::class);
+        return $this->hasMany(ProgramTime::class, 'program_id', 'id');
     }
 }

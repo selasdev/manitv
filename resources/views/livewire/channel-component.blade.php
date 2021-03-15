@@ -19,6 +19,9 @@
         <a href="{{ route('editChannelPlans', $channel) }}" class='btn btn-primary mt-1'>
             Edit plans
         </a>
+        <a href="{{ route('channelSchedule', $channel) }}" class='btn btn-primary mt-1'>
+            See schedule
+        </a>
     </div>
     @endif
 </div>

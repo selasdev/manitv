@@ -33,7 +33,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="number" class="col-md-4 col-form-label text-md-right">{{ __('Channel: ') }}</label>
+                                <label for="channel_id" class="col-md-4 col-form-label text-md-right">{{ __('Channel: ') }}</label>
 
                                 <div class="col-md-6">
                                     @livewire('channel-selector-component')
