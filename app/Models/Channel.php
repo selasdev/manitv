@@ -9,12 +9,17 @@ class Channel extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'number'
+    ];
+
     public function plans()
     {
-        return $this->hasMany(ChannelPlan::class);
+        return $this->belongsToMany(Plan::class, 'channel_plans', 'channel_id', 'plan_id');
     }
 
-    public function program()
+    public function programs()
     {
         return $this->hasMany(Program::class);
     }

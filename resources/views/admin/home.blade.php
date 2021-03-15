@@ -38,7 +38,7 @@
 
                         <div class="d-flex justify-content-center flex-column align-items-center">
                             <p class="card-text">List new channels or edit the old ones included on our plans.</p>
-                            <a href="#" class="btn btn-primary mb-4">See Channels</a>
+                            <a href="{{ route('channels') }}" class="btn btn-primary mb-4">See Channels</a>
                         </div>
 
                         <div class="d-flex justify-content-center flex-column align-items-center">
@@ -48,7 +48,7 @@
 
                         <div class="d-flex justify-content-center flex-column align-items-center">
                             <p class="card-text">Manage the programs that the users will be able to see on our channels.</p>
-                            <a href="#" class="btn btn-primary mb-4">See Programs</a>
+                            <a href="{{ route('programs') }}" class="btn btn-primary mb-4">See Programs</a>
                         </div>
 
                     </div>

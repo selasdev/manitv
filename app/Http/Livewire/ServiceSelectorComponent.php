@@ -7,6 +7,8 @@ use Livewire\Component;
 
 class ServiceSelectorComponent extends Component
 {
+    public $service_id;
+    
     public function render()
     {
         return view('livewire.service-selector-component', [
