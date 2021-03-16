@@ -21,7 +21,7 @@ class Package extends Model
 
     public function user()
     {
-        return $this->hasOne(PackageUser::class);
+        return $this->hasMany(PackageUser::class);
     }
 
     public function plans()
