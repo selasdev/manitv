@@ -20,7 +20,7 @@
                                 <label for="program_id" class="col-md-4 col-form-label text-md-right">{{ __('Program: ') }}</label>
 
                                 <div class="col-md-6">
-                                    @livewire('program-selector-component')
+                                    @livewire('program-selector-component', ['channel_id' => $channel->id])
 
                                     @error('program')
                                         <span class="invalid-feedback" role="alert">
