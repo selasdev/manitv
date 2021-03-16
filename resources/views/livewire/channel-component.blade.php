@@ -15,10 +15,14 @@
     @endif
     @if($showActions ?? false)
     <div class="flex-end p-2">
+        @if(Auth::user()->role === 'admin')
         <a href="{{ route('editChannel', $channel) }}" class="btn btn-primary mt-1">Edit</a>
+        @endif
+        @if(Auth::user()->role === 'admin')
         <a href="{{ route('editChannelPlans', $channel) }}" class='btn btn-primary mt-1'>
             Edit plans
         </a>
+        @endif
         <a href="{{ route('channelSchedule', $channel) }}" class='btn btn-primary mt-1'>
             See schedule
         </a>

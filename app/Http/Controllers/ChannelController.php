@@ -5,15 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ChannelEditRequest;
 use App\Http\Requests\ChannelRequest;
 use App\Models\Channel;
-use Illuminate\Http\Request;
 
 class ChannelController extends AdminRouteController
 {
     public function index()
     {
-        return $this->validateUserAndGo(function () {
-            return view('channels.index');
-        });
+        return view('channels.index');
     }
 
     public function create()

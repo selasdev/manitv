@@ -26,6 +26,11 @@
                             <a href="{{ route('user.packageuser.bills') }}" class="btn btn-primary mb-4">See Bills</a>
                         </div>
 
+                        <div class="d-flex justify-content-center flex-column align-items-center">
+                            <p class="card-text">See channels and their schedules </p>
+                            <a href="{{ route('channels') }}" class="btn btn-primary mb-4">See Channels</a>
+                        </div>
+
                     </div>
                 </div>
             </div>
