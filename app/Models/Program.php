@@ -21,6 +21,25 @@ class Program extends Model
 
     public function times()
     {
-        return $this->hasMany(ProgramTime::class, 'program_id', 'id');
+        return $this->hasMany(ProgramTime::class, 'program_id', 'id')
+            ->orderBy('time_start');
+    }
+
+    public function getTimesByDayAttribute() {
+        return [
+            'Monday' => $this->filterByDay('Monday'),
+            'Tuesday' => $this->filterByDay('Tuesday'),
+            'Wednesday' => $this->filterByDay('Wednesday'),
+            'Thursday' => $this->filterByDay('Thursday'),
+            'Friday' => $this->filterByDay('Friday'),
+            'Saturday' => $this->filterByDay('Saturday'),
+            'Sunday' => $this->filterByDay('Sunday'),
+        ];
+    }
+
+    public function filterByDay($day) {
+        return $this->times->filter(function(ProgramTime $programTime) use($day) {
+            return ($programTime->day == $day);
+        });
     }
 }

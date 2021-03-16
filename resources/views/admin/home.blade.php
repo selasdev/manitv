@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="d-flex justify-content-center flex-column align-items-center">
-                            <p class="card-text">List new channels or edit the old ones included on our plans.</p>
+                            <p class="card-text">List new channels or edit the old ones included on our plans. <br> Check the channel schedules </p>
                             <a href="{{ route('channels') }}" class="btn btn-primary mb-4">See Channels</a>
                         </div>
 
