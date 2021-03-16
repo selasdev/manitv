@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\BetweenTimes;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -46,8 +47,8 @@ class ProgramAddRequest extends FormRequest
         $start = $attrs['time_start'];
         return [
             'program_id' => 'required',
-            'time_start' => "required|lt:$end",
-            'time_end' => "required|gt:$start",
+            'time_start' => ['required', "lt:$end", new BetweenTimes($start, $end, $attrs['day'])],
+            'time_end' => ['required', "gt:$start"],
             'day' => Rule::in($this->validDays)
         ];
     }
