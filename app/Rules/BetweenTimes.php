@@ -30,7 +30,7 @@ class BetweenTimes implements Rule
     {
         $arrayMatches = ProgramTime::where('day', '=', $this->day)
             ->where('time_start', '<=' ,$this->timeStart)
-            ->where('time_end', '>=', $this->timeEnd)
+            ->whereBetween('time_end', [$this->timeStart, $this->timeEnd])
             ->get();
         return count($arrayMatches) == 0;
     }
