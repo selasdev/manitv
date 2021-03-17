@@ -11,7 +11,7 @@ abstract class AdminRouteController extends Controller {
             return $action();
         }
         else {
-            return $this->reditectHome();
+            return $this->redirectHome();
         }
     }
      
